@@ -36,8 +36,8 @@ The `;` separator runs each command independently, regardless of whether the pre
 
 The output confirmed command execution: normal ping output, followed by the username `_dvwa`, followed by the full contents of `/etc/passwd`. This proves unrestricted Remote Code Execution (RCE) at Low security.
 
-![Low source code](screenshots/low-00-source-code.png)
-![Low payload executed](screenshots/low-01-payload-executed.png)
+![Low source code](screenshot/low-00-source-code.JPG)
+![Low payload executed](screenshot/low-01-payload-executed.JPG)
 
 ---
 
@@ -67,9 +67,8 @@ Since `|` was never added to the blacklist, it passes through unfiltered. The pi
 
 Output: `_dvwa`. The blacklist blocked `&&`/`;` successfully, but the untested `|` character bypassed it entirely, confirming command injection is still possible at Medium security.
 
-![Medium source code](screenshots/medium-00-source-code.png)
-![Medium blacklist blocks semicolon/ampersand](screenshots/medium-01-blacklist-blocks-s....png)
-![Medium pipe bypass](screenshots/medium-02-pipe-bypass.png)
+![Medium source code](screenshot/medium-00-source-code.JPG)
+![Medium pipe bypass](screenshot/medium-02-pipe-bypass.JPG)
 
 ---
 
@@ -108,9 +107,9 @@ Both payloads omit the space *after* the pipe, so neither matches the `'| '` pat
 
 Both payloads returned `_dvwa`, confirming that despite a much larger blacklist, a single overly-specific pattern match left an exploitable gap.
 
-![High source code](screenshots/high-00-source-code.png)
-![High pipe+space blocked](screenshots/high-01-pipe-space-blocked-p....png)
-![High no-space pipe bypass](screenshots/high-02-pipe-nospace-bypass....png)
+![High source code](screenshot/high-00-source-code.JPG)
+![High pipe+space blocked](screenshot/high-01-pipe-space-blocked-p.JPG)
+![High no-space pipe bypass](screenshot/high-02-pipe-nospace-bypass.JPG)
 
 ---
 
@@ -149,8 +148,8 @@ ERROR: You have entered an invalid IP.
 
 No command execution — the whitelist validation correctly rejects any input that isn't strictly four numeric octets separated by dots.
 
-![Impossible source code](screenshots/impossible-00-source-code.png)
-![Impossible payload rejected](screenshots/impossible-01-payload-rejecte....png)
+![Impossible source code](screenshot/impossible-00-source-code.JPG)
+![Impossible payload rejected](screenshot/impossible-01-payload-rejecte.JPG)
 
 ---
 
